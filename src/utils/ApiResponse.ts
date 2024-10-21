@@ -1,21 +1,21 @@
 import { Response } from "express";
 
 class ApiResponse {
-    data : [];
+    data : [] | {};
     message : string;
     statusCode : number;
 
-    constructor(data : [] , message : string , statusCode : number){
+    constructor(data : [] | {} , message : string , statusCode : number){
         this.data=data;
         this.message=message;
         this.statusCode=statusCode;
     }
 
-    static success (data : [] , message : string , statusCode : number ){
+    static success (data : [] | {}, message : string , statusCode : number ){
         return new ApiResponse (data , message , statusCode)
     }
 
-    static failure (data : [] , message : string , statusCode : number ){
+    static failure (data : [] | {}, message : string , statusCode : number ){
         return new ApiResponse (data , message , statusCode)
     }
 
