@@ -20,7 +20,7 @@ class ApiResponse {
     }
 
     send (res : Response){
-        res.status(this.statusCode).json(this)
+       res.status(this.statusCode).json(this)
     }
 
 }

@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express"
 
 type AsyncHandler = (req: Request, res: Response, next: NextFunction) => Promise<any>
 
-async function asyncHandler(fn: AsyncHandler) {
+const asyncHandler = (fn: AsyncHandler) =>{
 
     return async function (req: Request, res: Response, next: NextFunction) {
         try {
