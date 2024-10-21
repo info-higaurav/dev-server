@@ -15,7 +15,7 @@ export const registerUser = asyncHandler(async (req:Request , res:Response , nex
     // checking if user already exists
     const {email , ...rest}=payload;
     const userExists = await User.find({email:email});
-    if(userExists){
+    if(userExists.length){
         return  ApiResponse.failure([],"User already exists",400).send(res)
     }
     // register new user
