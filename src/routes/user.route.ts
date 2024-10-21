@@ -17,6 +17,6 @@ user.route('/').get(healthChek)
 user.route('/register').post(registerUser)
 user.route('/update').post(updateUser)
 user.route('/get').post(getUser)
-user.route('/delete').post(deleteUser)
+user.route('/delete/:id').delete(deleteUser)
 
 export default user;

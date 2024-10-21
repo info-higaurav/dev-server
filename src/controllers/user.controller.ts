@@ -33,6 +33,10 @@ export const getUser = asyncHandler(async (req:Request , res:Response , next:Nex
     console.log(req.body)
 })
 export const deleteUser = asyncHandler(async (req:Request , res:Response , next:NextFunction)=>{
-    console.log(req.body)
+    const response = await User.findByIdAndDelete(req.params.id)
+    if(response){
+        return ApiResponse.success([],"User has been deleted successfully", 200).send(res)
+    }
+    return ApiResponse.failure([], "User doesn't exits",400).send(res)
 })
 
